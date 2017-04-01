@@ -4,13 +4,12 @@ import { Meteor } from "meteor/meteor";
 import { Tracker } from "meteor/tracker";
 import { Players } from "./../imports/api/players";
 
-const renderPlayers = function(playerList) {
-  return playerList.map(function(player) {
+const renderPlayers = playerList =>
+  playerList.map(player => {
     return <p key={player._id}>{player.name} has {player.score} points.</p>;
   });
-};
 
-const handleSubmit = function(event) {
+const handleSubmit = event => {
   event.preventDefault();
 
   let playerName = event.target.playerName.value;
