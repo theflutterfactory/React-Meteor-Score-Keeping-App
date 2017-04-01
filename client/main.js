@@ -10,16 +10,36 @@ const renderPlayers = function(playerList) {
   });
 };
 
+const handleSubmit = function(event) {
+  event.preventDefault();
+
+  let playerName = event.target.playerName.value;
+
+  if (playerName) {
+    event.target.playerName.value = "";
+
+    Players.insert({
+      name: playerName,
+      score: 0
+    });
+  }
+};
+
 Meteor.startup(() => {
   Tracker.autorun(function() {
     let players = Players.find().fetch();
     let title = "Score Keep";
     let name = "Julian";
+
     let jsx = (
       <div>
         <h1>{title}</h1>
         <p>Hello {name}!</p>
         {renderPlayers(players)}
+        <form onSubmit={handleSubmit}>
+          <input type="text" name="playerName" placeholder="Player name" />
+          <button>Add Player</button>
+        </form>
       </div>
     );
     ReactDOM.render(jsx, document.getElementById("app"));
