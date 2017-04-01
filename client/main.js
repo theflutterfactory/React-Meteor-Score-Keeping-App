@@ -5,9 +5,17 @@ import { Tracker } from "meteor/tracker";
 import { Players } from "./../imports/api/players";
 
 const renderPlayers = playerList =>
-  playerList.map(player => {
-    return <p key={player._id}>{player.name} has {player.score} points.</p>;
-  });
+  playerList.map(player => (
+    <p key={player._id}>
+      {player.name} has {player.score} points(s).
+      <button
+        onClick={() => {
+          Players.remove({ _id: player._id });
+        }}>
+        X
+      </button>
+    </p>
+  ));
 
 const handleSubmit = event => {
   event.preventDefault();
@@ -25,7 +33,7 @@ const handleSubmit = event => {
 };
 
 Meteor.startup(() => {
-  Tracker.autorun(function() {
+  Tracker.autorun(() => {
     let players = Players.find().fetch();
     let title = "Score Keep";
     let name = "Julian";
