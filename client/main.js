@@ -5,12 +5,7 @@ import { Tracker } from "meteor/tracker";
 import { Players } from "./../imports/api/players";
 import TitleBar from "./../imports/ui//TitleBar";
 import AddPlayer from "./../imports/ui//AddPlayer";
-import Player from "./../imports/ui/Player";
-
-const renderPlayers = playerList =>
-  playerList.map(player => {
-    return <Player key={player._id} player={player} />;
-  });
+import PlayerList from "./../imports/ui/PlayerList";
 
 Meteor.startup(() => {
   Tracker.autorun(() => {
@@ -20,7 +15,7 @@ Meteor.startup(() => {
     let jsx = (
       <div>
         <TitleBar titleProp={title} subtitleProp={subtitle} />
-        {renderPlayers(players)}
+        <PlayerList players={players} />
         <AddPlayer />
       </div>
     );
