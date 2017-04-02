@@ -52,7 +52,7 @@ Meteor.startup(() => {
 
     let jsx = (
       <div>
-        <TitleBar />
+        <TitleBar titleProp={title} />
         {renderPlayers(players)}
         <form onSubmit={handleSubmit}>
           <input type="text" name="playerName" placeholder="Player name" />
