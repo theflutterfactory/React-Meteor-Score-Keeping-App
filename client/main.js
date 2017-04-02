@@ -49,10 +49,10 @@ Meteor.startup(() => {
   Tracker.autorun(() => {
     let players = Players.find().fetch();
     let title = "Score Keep";
-
+    let subtitle = "The king of scorekeeping apps";
     let jsx = (
       <div>
-        <TitleBar titleProp={title} />
+        <TitleBar titleProp={title} subtitleProp={subtitle} />
         {renderPlayers(players)}
         <form onSubmit={handleSubmit}>
           <input type="text" name="playerName" placeholder="Player name" />
