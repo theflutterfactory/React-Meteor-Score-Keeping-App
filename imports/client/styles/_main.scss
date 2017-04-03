@@ -14,6 +14,10 @@ body {
   font-size: 1.65rem;
 }
 
+input, button, select {
+  font-size: 1.3rem;
+}
+
 h1 {
   color: white;
   font-weight: 300;
@@ -31,3 +35,5 @@ h3 {
 @import './components/wrapper'; 
 @import './components/item';
 @import './components/button';
+@import './components/form';
+@import './components/player'
