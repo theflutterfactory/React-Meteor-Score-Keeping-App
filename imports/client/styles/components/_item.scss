@@ -4,3 +4,14 @@
   margin-bottom: 1.3rem;
   padding: 1.3rem;
 }
+
+.item__message {
+  font-size: 1.3rem;
+  font-style: italic;
+  font-weight: 300;
+  text-align: center;
+}
+
+.item__message--empty {
+  color: #999999;
+}
