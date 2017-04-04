@@ -1,3 +1,12 @@
+$light_green: #EBFDD7;
+$dark_green: darken($light_green, 15);
+
+$light_yellow: #FFFEA1;
+$dark_yellow: darken($light_yellow, 30);
+
+$light_red: #FFBABA;
+$dark_red: darken($light_red, 15);
+
 .item {
   background: white;
   border: 1px solid #e8e8e8;
@@ -10,4 +19,19 @@
   font-style: italic;
   font-weight: 300;
   text-align: center;
+}
+
+.item--position-1 {
+    background: $light_green;
+    border: 2px solid $dark_green;
+}
+
+.item--position-2 {
+    background: $light_yellow;
+    border: 2px solid $dark_yellow;
+}
+
+.item--position-3 {
+    background: $light_red;
+    border: 2px solid $dark_red;
 }
